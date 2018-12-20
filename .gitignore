@@ -5,6 +5,11 @@
 npm
 npm-debug.log
 node_modules/
+package-lock.json
+bundle.js
+Photos/
+webpack.config.js
+
 
 pids
 *.pid

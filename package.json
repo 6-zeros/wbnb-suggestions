@@ -8,7 +8,8 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "build": "webpack --watch"
+    "build": "webpack --watch",
+    "popuate": "node ./database/index.js"
   },
   "dependencies": {
     "nodemon": "^1.18.9",
