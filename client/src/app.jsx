@@ -16,7 +16,7 @@ class App extends React.Component {
 
       <div> Hi This is a message</div>
     );
-  }
+   };
 }
 
 ReactDOM.render(<App />, document.getElementById('app'));
