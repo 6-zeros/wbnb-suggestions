@@ -17,7 +17,7 @@ let repoSchema = mongoose.Schema({
   description: Text
 });
 
-let repo = mongoose.model('Similar', repoSchema);
+ let Carousel = mongoose.model('Similar', repoSchema);
 
 module.exports = {
   repoSchema,
