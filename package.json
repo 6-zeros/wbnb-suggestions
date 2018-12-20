@@ -9,7 +9,8 @@
   },
   "scripts": {
     "build": "webpack --watch",
-    "popuate": "node ./database/index.js"
+    "start": "Nodemon ./server/server.js",
+    "popuate": "node /database/index.js"
   },
   "dependencies": {
     "nodemon": "^1.18.9",
