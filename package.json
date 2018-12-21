@@ -8,9 +8,12 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "build": "webpack --watch"
+     "build": "webpack -d --watch",
+    "start": "Nodemon ./server/server.js",
+    "popuate": "node /database/index.js"
   },
   "dependencies": {
+    "aws-sdk": "^2.380.0",
     "nodemon": "^1.18.9",
     "nvm": "0.0.4",
     "react": "^16.6.3",
