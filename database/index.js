@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/houses', {}, (err) =>{
+mongoose.connect('mongodb://localhost/houses', {}, (err) => {
   if (err) {
     console.log(err);
   }
@@ -9,17 +9,25 @@ mongoose.connect('mongodb://localhost/houses', {}, (err) =>{
 
 const photoCaraSchema = mongoose.Schema({
   _id: { type: Number, unique: true, index: true },
-  postTitle: Text,
+  title: String,
+  prem: Boolean,
   cost: Number,
-  image: Text,
-  roomtype: { type: Text, beds: Number, Premium: Boolean },
-  rating: { StarNum: Number, Votes: Numbers },
-  description: Text
+  picture: String,
+  rcount: Number,
+  stars: Number,
+  beds: Number,
+  favorite: Boolean,
+  description: String,
 });
 
-const repo = mongoose.model('Similar', photoCaraSchema);
+const photoAdd = mongoose.model('Similar', photoCaraSchema);
+
+const find = (data, callback) => {
+  photoAdd.aggregate([{$sample:{size: 10 }}], callback)
+}
 
 module.exports = {
-  photoCaraSchema,
-  repo,
+  photoAdd, 
+  find,
 };
+

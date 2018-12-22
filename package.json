@@ -8,12 +8,16 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-     "build": "webpack -d --watch",
+    "build": "webpack -d --watch",
     "start": "Nodemon ./server/server.js",
-    "popuate": "node /database/index.js"
+    "populate": "node ./database/dbseeder.js"
   },
   "dependencies": {
     "aws-sdk": "^2.380.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "lorem-ipsum": "^1.0.6",
+    "mongoose": "^5.4.0",
     "nodemon": "^1.18.9",
     "nvm": "0.0.4",
     "react": "^16.6.3",
@@ -24,7 +28,14 @@
     "@babel/preset-env": "^7.2.0",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.4",
+    "css-loader": "^2.0.2",
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb": "^17.1.0",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.0",
+    "style-loader": "^0.23.1",
     "webpack": "^4.27.1",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10"
