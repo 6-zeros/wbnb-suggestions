@@ -1,0 +1,49 @@
+.photo{
+    height: 344px;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+    width: 516px;
+    object-fit: fill;
+}
+
+.boxie{
+    display: inline-block;
+    /* border: 3px solid black;  */
+    height: 300;
+    width: 200;
+    margin: 5px;
+    /* box-shadow: 5px 5px 10px black; */
+    border-radius: 10px;
+
+}
+
+.textBox{
+
+    width: 516px;
+    height: 86px;
+}
+
+.title{
+    line-height: 22px !important;
+    max-height: 44px !important;
+    text-overflow: ellipsis !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    font-size: 19px !important;
+    overflow: hidden !important;
+    color: rgb(72, 72, 72) !important;
+}
+.scrolls{
+    position: relative;
+    display: flex;
+    overflow-x: scroll;
+}
+.scroller{
+    overflow: hidden;
+
+}
+
+.checked{
+    color: teal;
+}
