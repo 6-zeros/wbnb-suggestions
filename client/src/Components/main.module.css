@@ -1,49 +1,85 @@
-.photo{
-    height: 344px;
-    border-top-right-radius: 3px;
-    border-top-left-radius: 3px;
-    width: 516px;
-    object-fit: fill;
+.photo {
+  height: 344px;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+  width: 516px;
+  object-fit: fill;
+}
+.homes {
+  position: fixed;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+    Helvetica Neue, sans-serif;
+  color: #484848;
+  font-size: 24px;
 }
 
-.boxie{
-    display: inline-block;
-    /* border: 3px solid black;  */
-    height: 300;
-    width: 200;
-    margin: 5px;
-    /* box-shadow: 5px 5px 10px black; */
-    border-radius: 10px;
-
+.boxie {
+  display: inline-block;
+  height: 300;
+  width: 200;
+  margin-right: 10px;
+  margin-top: 70px;
+  border-radius: 10px;
 }
 
-.textBox{
-
-    width: 516px;
-    height: 86px;
+.textBox {
+  width: 516px;
+  height: 86px;
 }
 
-.title{
-    line-height: 22px !important;
-    max-height: 44px !important;
-    text-overflow: ellipsis !important;
-    display: -webkit-box !important;
-    -webkit-line-clamp: 2 !important;
-    -webkit-box-orient: vertical !important;
-    font-size: 19px !important;
-    overflow: hidden !important;
-    color: rgb(72, 72, 72) !important;
+.title {
+  line-height: 22px !important;
+  max-height: 44px !important;
+  text-overflow: ellipsis !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  font-size: 19px !important;
+  overflow: hidden !important;
+  color: rgb(72, 72, 72) !important;
+  margin: 3px;
+  margin-left: 0px;
 }
-.scrolls{
-    position: relative;
-    display: flex;
-    overflow-x: scroll;
+.scrolls {
+  /* position: relative; */
+  /* display: flex; */
+  /* overflow-x: scroll; */
+  overflow-x: scroll;
+  height: 80px;
+  white-space: nowrap;
+  height: 100%;
+  width: 100%;
 }
-.scroller{
-    overflow: hidden;
+.review {
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+    Helvetica Neue, sans-serif;
+  display: inline-block;
+  margin: 0px;
+  color: #484848;
+  font-size: 12px;
+  font-weight: 600;
+}
+.fa {
+  font-size: 9px;
+  margin: 0px;
+  color: lightgrey;
+}
+.checked {
+  color: teal;
+  font-size: 9px;
+  margin: 0px;
+}
 
+.scrolls::-webkit-scrollbar {
+  display: none;
 }
 
-.checked{
-    color: teal;
+.roomtype {
+  margin: 3px;
+  margin-left: 0px;
+}
+
+.roomcost {
+  margin: 3px;
+  margin-left: 0px;
 }

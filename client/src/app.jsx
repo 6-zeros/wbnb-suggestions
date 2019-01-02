@@ -1,40 +1,39 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import List from './Components/List.jsx';
-import styles from "./Components/main.module.css" 
+import React from "react";
+import ReactDOM from "react-dom";
+import List from "./Components/List.jsx";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-     this.state={
-      info : []
+    this.state = {
+      info: []
     };
   }
-  componentDidMount(){
-    fetch('/localhost:3123/house', {
+  componentDidMount() {
+    fetch("/localhost:3123/house", {
       method: "GET",
-      headers: {'Content-type' : 'application/json'}
-    }).then((data)=>{
-      return data.json()
-    }).then((data2)=>{
-      this.setState({
-        info : data2
-      })
-      console.log(this.state.info)
-
+      headers: { "Content-type": "application/json" }
     })
+      .then(data => {
+        return data.json();
+      })
+      .then(data2 => {
+        this.setState({
+          info: data2
+        });
+        return data2;
+      });
   }
 
   render() {
-    return(
+    return (
       <div>
-      <div> Hi This is a message</div>
-      <div className = "scroller">
-        <List house={this.state.info}/>
-      </div>
+        <div>
+          <List house={this.state.info} />
+        </div>
       </div>
     );
-   };
+  }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+export default App;
