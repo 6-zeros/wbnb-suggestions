@@ -20,7 +20,7 @@ const photoCaraSchema = mongoose.Schema({
   description: String,
 });
 
-const photoAdd = mongoose.model('Similar', photoCaraSchema);
+const photoAdd = mongoose.model('similars', photoCaraSchema);
 
 const find = (data, callback) => {
   photoAdd.aggregate([{$sample:{size: 10 }}], callback)
