@@ -22,23 +22,23 @@ class RoomEntry extends React.Component {
         <div>
           <span
             class={`${"fa fa-star " +
-              (this.props.entry.stars >= 1 ? "checked" : "")}`}
+              (this.props.entry.stars >= 1 ? "checked" : "fastar")}`}
           />
           <span
             class={`${"fa fa-star " +
-              (this.props.entry.stars >= 2 ? "checked" : "")}`}
+              (this.props.entry.stars >= 2 ? "checked" : "fastar")}`}
           />
           <span
             class={`${"fa fa-star " +
-              (this.props.entry.stars >= 3 ? "checked" : "")}`}
+              (this.props.entry.stars >= 3 ? "checked" : "fastar")}`}
           />
           <span
             class={`${"fa fa-star " +
-              (this.props.entry.stars >= 4 ? "checked" : "")}`}
+              (this.props.entry.stars >= 4 ? "checked" : "fastar")}`}
           />
           <span
             class={`${"fa fa-star " +
-              (this.props.entry.stars >= 5 ? "checked" : "")}`}
+              (this.props.entry.stars >= 5 ? "checked" : "fastar")}`}
           />
           <p class="review">{this.props.entry.rcount}</p>
         </div>
