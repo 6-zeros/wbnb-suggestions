@@ -9,38 +9,38 @@ class RoomEntry extends React.Component {
 
   render() {
     return (
-      <div class="boxie">
-        <div class="heart" />
-        <img class="photo" src={this.props.entry.picture} />
-        <p class="roomtype">
+      <div className="boxie">
+        <div className="heart" />
+        <img className="photo" src={this.props.entry.picture} />
+        <p className="roomtype">
           {"PRIVATE ROOM  · " + this.props.entry.beds + " bed"}
         </p>
-        <h5 class="title">{this.props.entry.title}</h5>
+        <h5 className="title">{this.props.entry.title}</h5>
 
-        <p class="roomcost">{"$" + this.props.entry.cost + " per night"}</p>
+        <p className="roomcost">{"$" + this.props.entry.cost + " per night"}</p>
         {/* <p>{this.props.entry.description}</p> */}
-        <div>
+        <div class="ratingStars">
           <span
-            class={`${"fa fa-star " +
+            className={`${"fa fa-star " +
               (this.props.entry.stars >= 1 ? "checked" : "fastar")}`}
           />
           <span
-            class={`${"fa fa-star " +
+            className={`${"fa fa-star " +
               (this.props.entry.stars >= 2 ? "checked" : "fastar")}`}
           />
           <span
-            class={`${"fa fa-star " +
+            className={`${"fa fa-star " +
               (this.props.entry.stars >= 3 ? "checked" : "fastar")}`}
           />
           <span
-            class={`${"fa fa-star " +
+            className={`${"fa fa-star " +
               (this.props.entry.stars >= 4 ? "checked" : "fastar")}`}
           />
           <span
-            class={`${"fa fa-star " +
+            className={`${"fa fa-star " +
               (this.props.entry.stars >= 5 ? "checked" : "fastar")}`}
           />
-          <p class="review">{this.props.entry.rcount}</p>
+          <p className="review">{this.props.entry.rcount}</p>
         </div>
       </div>
     );

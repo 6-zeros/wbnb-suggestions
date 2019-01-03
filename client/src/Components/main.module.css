@@ -6,7 +6,6 @@
   object-fit: fill;
 }
 .homes {
-  position: fixed;
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
     Helvetica Neue, sans-serif;
   color: #484848;
@@ -18,7 +17,7 @@
   height: 300;
   width: 200;;
   margin-right: 10px;
-  margin-top: 70px;
+  margin-top: 10px;
   border-radius: 10px;
 }
 
