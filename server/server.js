@@ -8,7 +8,7 @@ const port = 3123;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use('/room/:roomid/', express.static(path.join(__dirname, '/../public')));
+app.use('/rooms/:roomids/', express.static(path.join(__dirname, '/../public')));
 
 app.get('/house', (req, res) => {
   db.find({}, (err, data) => {
