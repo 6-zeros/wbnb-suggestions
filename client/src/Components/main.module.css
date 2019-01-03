@@ -28,6 +28,7 @@
 }
 
 .title {
+  word-wrap: break-word;
   line-height: 22px !important;
   max-height: 44px !important;
   text-overflow: ellipsis !important;
