@@ -23,7 +23,6 @@
     "express": "^4.16.4",
     "lorem-ipsum": "^1.0.6",
     "mongoose": "^5.4.0",
-    "nodemon": "^1.18.9",
     "nvm": "0.0.4",
     "react": "^16.6.3",
     "react-dom": "^16.6.3"
@@ -45,6 +44,7 @@
     "eslint-plugin-react": "^7.11.0",
     "jest": "^23.6.0",
     "jest-cli": "^23.6.0",
+    "nodemon": "^1.18.9",
     "react-test-renderer": "^16.7.0",
     "style-loader": "^0.23.1",
     "webpack": "^4.27.1",
