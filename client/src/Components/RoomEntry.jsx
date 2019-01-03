@@ -19,7 +19,7 @@ class RoomEntry extends React.Component {
 
         <p className="roomcost">{"$" + this.props.entry.cost + " per night"}</p>
         {/* <p>{this.props.entry.description}</p> */}
-        <div>
+        <div class="ratingStars">
           <span
             className={`${"fa fa-star " +
               (this.props.entry.stars >= 1 ? "checked" : "fastar")}`}
