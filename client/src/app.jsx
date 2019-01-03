@@ -10,7 +10,7 @@ class App extends React.Component {
     };
   }
   componentDidMount() {
-    fetch("/localhost:3123/house", {
+    fetch("/localhost/house", {
       method: "GET",
       headers: { "Content-type": "application/json" }
     })
