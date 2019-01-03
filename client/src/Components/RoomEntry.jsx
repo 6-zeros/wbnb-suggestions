@@ -16,6 +16,7 @@ class RoomEntry extends React.Component {
           {"PRIVATE ROOM  · " + this.props.entry.beds + " bed"}
         </p>
         <h5 class="title">{this.props.entry.title}</h5>
+
         <p class="roomcost">{"$" + this.props.entry.cost + " per night"}</p>
         {/* <p>{this.props.entry.description}</p> */}
         <div>
