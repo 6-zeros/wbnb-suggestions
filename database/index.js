@@ -8,7 +8,7 @@ mongoose.connect('mongodb://localhost/houses', {}, (err) => {
 });
 
 const photoCaraSchema = mongoose.Schema({
-  _id: { type: Number, unique: true, index: true },
+  id: { type: Number, unique: true, index: true },
   title: String,
   prem: Boolean,
   cost: Number,
@@ -22,12 +22,30 @@ const photoCaraSchema = mongoose.Schema({
 
 const photoAdd = mongoose.model('similars', photoCaraSchema);
 
-const find = (data, callback) => {
-  photoAdd.aggregate([{$sample:{size: 10 }}], callback)
+const readSuggestion = (data, callback) => {
+  photoAdd.aggregate([{ $sample: { size: 10 } }], callback)
 }
 
+const addListing = (id, resInfo, cb) => {
+  // insert listing into db
+  // cb()
+};
+
+const updateSuggestion = (id, newResInfo, cb) => {
+  // update suggestions of the related listing
+  // cb()
+};
+
+const deleteListing = (id, resInfo, cb) => {
+  // delete the listing of the related id
+  // cb()
+};
+
 module.exports = {
-  photoAdd, 
-  find,
+  photoAdd,
+  readSuggestion,
+  addListing,
+  updateSuggestion,
+  deleteListing
 };
 
