@@ -32,11 +32,11 @@ const randomNum = (from, to) => {
 const seedGenerateor = (entries) => {
   const generatedData = [];
   for (let i = 1; i <= entries; i += 1) {
-    imgId = i % entries + 1
+    imgId = i % (entries + 1)
     const photo = {
-      _id: i,
+      id: i,
       title: sent,
-      premium: randomBool,
+      prem: randomBool,
       cost: randomNum(50, 200),
       picture: `https://s3-us-west-1.amazonaws.com/wbnb-reviews-images/img${imgId}.jpg`,
       rcount: randomNum(20, 1500),
@@ -50,7 +50,7 @@ const seedGenerateor = (entries) => {
   return generatedData;
 };
 
-const generatedData = seedGenerateor(1000);
+const generatedData = seedGenerateor(100);
 const seeder = () => {
   db.photoAdd.deleteMany({}, (err) => {
     if (err) {
