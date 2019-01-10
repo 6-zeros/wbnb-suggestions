@@ -29,7 +29,7 @@ class App extends React.Component {
     return (
       <div>
         <div>
-        <h2 className="homes">More homes you may like</h2>
+          <h2 className="homes">More homes you may like</h2>
           <List house={this.state.info} />
         </div>
       </div>
