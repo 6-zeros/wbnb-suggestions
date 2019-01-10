@@ -1,15 +1,8 @@
 const mongoose = require("mongoose");
 const loremIpsum = require("lorem-ipsum");
-const db = require('./index.js')
-
-// mongoose.connect('mongodb://localhost/roomer', {}, (err)=>{
-//   if(err){
-//     console.log(err)
-//   }
-//   else{
-//     console.log('connected')
-//   }
-// });
+const fs = require('fs');
+const db = require('./index.js');
+const path = require('path');
 
 const para = loremIpsum({
   count: 1,
@@ -39,12 +32,13 @@ const randomNum = (from, to) => {
 const seedGenerateor = (entries) => {
   const generatedData = [];
   for (let i = 1; i <= entries; i += 1) {
+    imgId = i % (entries + 1)
     const photo = {
-      _id: i,
+      id: i,
       title: sent,
-      premium: randomBool,
+      prem: randomBool,
       cost: randomNum(50, 200),
-      picture: `https://s3-us-west-1.amazonaws.com/fec-ericmai-photos/fec+Photos/Bedroom+(${i}).jpg`,
+      picture: `https://s3-us-west-1.amazonaws.com/wbnb-reviews-images/img${imgId}.jpg`,
       rcount: randomNum(20, 1500),
       stars: randomNum(1, 5),
       beds: randomNum(1, 7),
@@ -56,16 +50,26 @@ const seedGenerateor = (entries) => {
   return generatedData;
 };
 
-const seeder = (data) => {
+const generatedData = seedGenerateor(100);
+const seeder = () => {
   db.photoAdd.deleteMany({}, (err) => {
     if (err) {
       console.error(err);
     } else {
       console.log("Zeroed out");
-      db.photoAdd.insertMany(data).then();
+      fs.readFile(path.resolve(__dirname, 'data.txt'), (err, data) => {
+        if (err) {
+          console.log('Error in reading file.', err);
+        }
+        const parsed = JSON.parse(data);
+        db.photoAdd.insertMany(parsed).then();
+      });
     }
   });
 };
-
-const genData = seedGenerateor(100);
-seeder(genData);
+fs.writeFile('./database/data.txt', JSON.stringify(generatedData), (err, data) => {
+  if (err) {
+    return console.log('Error in writing', err);
+  }
+  seeder();
+});
