@@ -27,6 +27,7 @@
 }
 
 .title {
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
   word-break: break-all;
   white-space: normal;
   overflow: hidden;
@@ -78,11 +79,13 @@
 }
 
 .roomtype {
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
   margin: 3px;
   margin-left: 0px;
 }
 
 .roomcost {
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
   margin: 3px;
   margin-left: 0px;
 }

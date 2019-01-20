@@ -1,51 +1,55 @@
-const mongoose = require('mongoose');
+const { Client } = require('pg');
 
-mongoose.connect('mongodb://localhost/houses', {}, (err) => {
-  if (err) {
-    console.log(err);
-  }
-  console.log('im connected?');
+const listing = new Client({
+  host: 'localhost',
+  user: 'seymaakin',
+  database: 'seymaakin'
 });
 
-const photoCaraSchema = mongoose.Schema({
-  id: { type: Number, unique: true, index: true },
-  title: String,
-  prem: Boolean,
-  cost: Number,
-  picture: String,
-  rcount: Number,
-  stars: Number,
-  beds: Number,
-  favorite: Boolean,
-  description: String,
+listing.connect((err) => {
+  if (err) { console.log(err); }
 });
 
-const photoAdd = mongoose.model('similars', photoCaraSchema);
-
-const readSuggestion = (data, callback) => {
-  photoAdd.aggregate([{ $sample: { size: 10 } }], callback)
-}
-
-const addListing = (id, resInfo, cb) => {
-  // insert listing into db
-  // cb()
+const addSuggestion = (id, suggestionInfo, cb) => {
+  const { suggestion_id } = suggestionInfo;
+  const queryString = `INSERT INTO imported_suggestions (listing_id, suggestion_id)
+                       VALUES (${id}, ${suggestion_id};`;
+  listing.query(queryString, (err) => {
+    if (err) { console.log(err) };
+    cb();
+  });
 };
 
-const updateSuggestion = (id, newResInfo, cb) => {
-  // update suggestions of the related listing
-  // cb()
+const getSuggestionInfo = (id, cb) => {
+  const queryString = `select * from imported_listings where id IN ( select suggestion_id from imported_suggestions where listing_id = '${id}')`;
+  listing.query(queryString, (err, result) => {
+    if (err) { console.log(err) };
+    cb(result.rows);
+  });
 };
 
-const deleteListing = (id, resInfo, cb) => {
-  // delete the listing of the related id
-  // cb()
+const updateSuggestion = (id, suggestionInfo, cb) => {
+  const { suggestion_id, new_suggestion_id } = suggestionInfo;
+  const queryString = `UPDATE imported_suggestions SET suggestion_id=${new_suggestion_id} WHERE listing_id = ${id} and suggestion_id = ${suggestion_id};`;
+  listing.query(queryString, (err) => {
+    if (err) { console.log(err) };
+    cb();
+  });
+};
+
+const deleteSuggestion = (id, suggestionInfo, cb) => {
+  const { suggestion_id } = suggestionInfo;
+  const queryString = `DELETE FROM imported_suggestions WHERE listing_id = ${id} and suggestion_id = ${suggestion_id};`;
+
+  listing.query(queryString, (err) => {
+    if (err) { console.log(err) };
+    cb();
+  });
 };
 
 module.exports = {
-  photoAdd,
-  readSuggestion,
-  addListing,
+  getSuggestionInfo,
+  addSuggestion,
   updateSuggestion,
-  deleteListing
+  deleteSuggestion
 };
-

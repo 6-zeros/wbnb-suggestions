@@ -10,20 +10,24 @@
   "scripts": {
     "build": "webpack -d --watch",
     "start": "Nodemon ./server/server.js",
-    "populate": "node ./database/dbseeder.js",
+    "populate_cassandra": "node ./database/dbseeder.js",
+    "populate_postgres_suggestions": "node ./database/postgreSQL/seeder_suggestions_postgres.js",
     "test": "jest --watchAll"
   },
   "dependencies": {
     "aws-sdk": "^2.380.0",
+    "axios": "^0.18.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "body-parser": "^1.18.3",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.7.1",
     "express": "^4.16.4",
+    "faker": "^4.1.0",
     "lorem-ipsum": "^1.0.6",
     "mongoose": "^5.4.0",
     "nvm": "0.0.4",
+    "pg": "^7.8.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3"
   },

@@ -11,36 +11,36 @@ class RoomEntry extends React.Component {
     return (
       <div className="boxie">
         <div className="heart" />
-        <img className="photo" src={this.props.entry.picture} />
+        <img className="photo" src={this.props.suggestionEntry.picture} />
         <p className="roomtype">
-          {"PRIVATE ROOM  · " + this.props.entry.beds + " bed"}
+          PRIVATE ROOM  · {this.props.suggestionEntry.beds} {this.props.suggestionEntry.beds > 1 ? 'beds' : 'bed'}
         </p>
-        <h5 className="title">{this.props.entry.title}</h5>
+        <h5 className="title">{this.props.suggestionEntry.title.substring(0, 55)}</h5>
 
-        <p className="roomcost">{"$" + this.props.entry.cost + " per night"}</p>
-        {/* <p>{this.props.entry.description}</p> */}
+        <p className="roomcost">{"$" + this.props.suggestionEntry.cost + " per night"}</p>
+
         <div class="ratingStars">
           <span
             className={`${"fa fa-star " +
-              (this.props.entry.stars >= 1 ? "checked" : "fastar")}`}
+              (this.props.suggestionEntry.stars >= 1 ? "checked" : "fastar")}`}
           />
           <span
             className={`${"fa fa-star " +
-              (this.props.entry.stars >= 2 ? "checked" : "fastar")}`}
+              (this.props.suggestionEntry.stars >= 2 ? "checked" : "fastar")}`}
           />
           <span
             className={`${"fa fa-star " +
-              (this.props.entry.stars >= 3 ? "checked" : "fastar")}`}
+              (this.props.suggestionEntry.stars >= 3 ? "checked" : "fastar")}`}
           />
           <span
             className={`${"fa fa-star " +
-              (this.props.entry.stars >= 4 ? "checked" : "fastar")}`}
+              (this.props.suggestionEntry.stars >= 4 ? "checked" : "fastar")}`}
           />
           <span
             className={`${"fa fa-star " +
-              (this.props.entry.stars >= 5 ? "checked" : "fastar")}`}
+              (this.props.suggestionEntry.stars >= 5 ? "checked" : "fastar")}`}
           />
-          <p className="review">{this.props.entry.rcount}</p>
+          <p className="review">{this.props.suggestionEntry.reviewcount}</p>
         </div>
       </div>
     );

@@ -5,9 +5,9 @@ const list = props => {
   return (
     <div className="hide">
       <div className="scrolls">
-        {props.house.map(entry => {
+        {props.suggestions.map(suggestionEntry => {
           return (
-            <RoomEntry className="roomEntry" key={entry.id} entry={entry} />
+            <RoomEntry className="roomEntry" key={suggestionEntry.id} suggestionEntry={suggestionEntry} />
           );
         })}
       </div>

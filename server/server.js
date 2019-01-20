@@ -8,36 +8,41 @@ const port = 3123;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use('/rooms/:roomids/', express.static(path.join(__dirname, '/../public')));
+app.use(express.static(path.join(__dirname, '/../public')));
 
-app.get('/house', (req, res) => {
-  db.readSuggestion({}, (err, data) => {
-    res.send(data);
+app.get('/:id/suggestions', (req, res) => {
+  const { id } = req.params;
+  console.log('id', id)
+  db.getSuggestionInfo(id, (result) => {
+    res.send(result);
   });
 });
 
-app.post('/rooms', (req, res) => {
-  const { listingInfo } = req.body;
-  addListing(id, listingInfo, () => {
+app.post('/:id/suggestions', (req, res) => {
+  const { id } = req.params;
+  const { suggestionInfo } = req.body;
+  addListing(id, suggestionInfo, () => {
     res.send(`added listing successfully`);
   });
 });
 
 
-app.put('/rooms/:id', (req, res) => {
-  const { suggestionInfo } = req.body;
+app.put('/:id/suggestions', (req, res) => {
   const { id } = req.params;
+  const { suggestionInfo } = req.body;
   updateSuggestion(id, suggestionInfo, () => {
     res.send(`similar listing suggestions were updated successfully for the listing with id ${id}`);
   });
 });
 
-app.delete('/rooms/:id', (req, res) => {
+app.delete('/:id/suggestions', (req, res) => {
   const { id } = req.params;
-  const { listingInfo } = req.body;
-  deleteListing(id, listingInfo, () => {
-    res.send(`the listing with id ${id} number has been deleted successfully`);
+  const { suggestionInfo } = req.body;
+  db.deleteSuggestion(id, suggestionInfo, () => {
+    res.send(`the suggestion with id ${id} number has been deleted successfully`);
   });
 });
 
-app.listen(port, () => { });
+app.listen(port, () => {
+  console.log(`Server listening on port: ${port}`);
+});
