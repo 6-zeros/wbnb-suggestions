@@ -10,8 +10,10 @@
   "scripts": {
     "build": "webpack -d --watch",
     "start": "Nodemon ./server/server.js",
+    "stress-test": "k6 run k6.js",
     "populate_cassandra": "node ./database/dbseeder.js",
     "populate_postgres_suggestions": "node ./database/postgreSQL/seeder_suggestions_postgres.js",
+    "populate_postgres_listings": "node ./database/postgreSQL/seeder_listings_postgres.js",
     "test": "jest --watchAll"
   },
   "dependencies": {
@@ -26,6 +28,7 @@
     "faker": "^4.1.0",
     "lorem-ipsum": "^1.0.6",
     "mongoose": "^5.4.0",
+    "newrelic": "^5.1.0",
     "nvm": "0.0.4",
     "pg": "^7.8.0",
     "react": "^16.6.3",
