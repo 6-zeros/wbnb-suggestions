@@ -9,7 +9,7 @@ const randomNum = (from, to) => {
 
 var current = -1;
 var stream = fs.createWriteStream('./database/postgreSQL/postgres_listings_data.csv', { flags: 'w' });
-stream.write("id,title,cost,picture,reviewCount,stars,beds\n")
+stream.write("title,cost,picture,reviewCount,stars,beds\n")
 let numberOfListings = 10000000;
 
 function seedGenerator() {
@@ -18,14 +18,13 @@ function seedGenerator() {
     return stream.end();
   }
   let imgId = (current % 981) + 1;
-  let id = current + 1;
   let title = titleGenerator();
   let cost = randomNum(50, 200);
   let picture = `https://s3-us-west-1.amazonaws.com/wbnb-suggestions-images/img${imgId}.jpg`;
   let reviewCount = randomNum(20, 1500);
   let stars = randomNum(1, 5);
   let beds = randomNum(1, 7);
-  var listingDetail = `${id},${title},${cost},${picture},${reviewCount},${stars},${beds}\n`
+  var listingDetail = `${title},${cost},${picture},${reviewCount},${stars},${beds}\n`
 
   var canContinue = stream.write(listingDetail);
 

@@ -15,7 +15,7 @@ class RoomEntry extends React.Component {
         <p className="roomtype">
           PRIVATE ROOM  · {this.props.suggestionEntry.beds} {this.props.suggestionEntry.beds > 1 ? 'beds' : 'bed'}
         </p>
-        <h5 className="title">{this.props.suggestionEntry.title.substring(0, 55)}</h5>
+        <h5 className="title">{this.props.suggestionEntry.title.substring(0, 50)}</h5>
 
         <p className="roomcost">{"$" + this.props.suggestionEntry.cost + " per night"}</p>
 
