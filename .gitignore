@@ -1,6 +1,8 @@
 ## MAC files ##
 .DS_Store
-database/data.csv
+/database/cassandra/data.csv
+/database/postgreSQL/postgres_listings_data.csv
+/database/postgreSQL/postgres_suggestions_data.csv
 ## NPM ##
 npm
 npm-debug.log
