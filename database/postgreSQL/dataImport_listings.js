@@ -6,8 +6,8 @@ const client = new Client({
 });
 
 const createImportedListingsTable = `
-DROP TABLE IF EXISTS listings_temp;
-CREATE TABLE listings_temp (
+DROP TABLE IF EXISTS listings;
+CREATE TABLE listings (
   id SERIAL primary key, 
   title varchar, 
   cost INT NOT NULL, 
@@ -18,7 +18,7 @@ CREATE TABLE listings_temp (
 `;
 
 const importListingsData = `
-COPY listings_temp (title, cost, picture, reviewCount, stars, beds)
+COPY listings (title, cost, picture, reviewCount, stars, beds)
 FROM '/tmp/postgres_listings_data.csv''
 WITH (format csv, header);
 `;
