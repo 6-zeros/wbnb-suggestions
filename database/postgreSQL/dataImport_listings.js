@@ -6,12 +6,19 @@ const client = new Client({
 });
 
 const createImportedListingsTable = `
-DROP TABLE IF EXISTS imported_listings;
-CREATE TABLE imported_listings (id varchar primary key, title varchar, cost varchar, picture varchar, reviewCount varchar, stars varchar, beds varchar);
+DROP TABLE IF EXISTS listings;
+CREATE TABLE listings (
+  id SERIAL primary key, 
+  title varchar, 
+  cost INT NOT NULL, 
+  picture varchar, 
+  reviewCount INT NOT NULL, 
+  stars INT NOT NULL, 
+  beds INT NOT NULL);
 `;
 
 const importListingsData = `
-COPY imported_listings
+COPY listings (title, cost, picture, reviewCount, stars, beds)
 FROM '/Users/seymaakin/Desktop/hackreactor/hrsf107-system-design-capstone/wbnb-suggestions/database/postgreSQL/postgres_listings_data.csv'
 WITH (format csv, header);
 `;
@@ -19,7 +26,7 @@ WITH (format csv, header);
 client.connect()
   .then(() => console.log('-- CONNECTED TO seymaakin DATABASE'))
   .then(() => client.query(createImportedListingsTable))
-  .then(() => console.log('---- CREATED imported_listings TABLE'))
+  .then(() => console.log('---- CREATED listings TABLE'))
   .then(() => console.log('------ IMPORTING LISTINGS DATA'))
   .then(() => client.query(importListingsData))
   .then(() => console.log('-------- SUCCESSFULLY IMPORTED LISTINGS DATA'))
