@@ -20,7 +20,7 @@ const randomSuggestionGenerator = (listingId) => {
 }
 
 var current = -1;
-var stream = fs.createWriteStream('./database/postgreSQL/postgres_suggestions_data.csv', { flags: 'w' });
+var stream = fs.createWriteStream('/tmp/postgres_suggestions_data.csv', { flags: 'w' });
 stream.write("listingId, suggestionId\n")
 let numberOfListings = 10000000;
 

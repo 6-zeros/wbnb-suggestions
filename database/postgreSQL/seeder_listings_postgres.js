@@ -8,7 +8,7 @@ const randomNum = (from, to) => {
 };
 
 var current = -1;
-var stream = fs.createWriteStream('./database/postgreSQL/postgres_listings_data.csv', { flags: 'w' });
+var stream = fs.createWriteStream('/tmp/postgres_listings_data.csv', { flags: 'w' });
 stream.write("title,cost,picture,reviewCount,stars,beds\n")
 let numberOfListings = 10000000;
 
