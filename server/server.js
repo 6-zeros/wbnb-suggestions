@@ -1,3 +1,4 @@
+require('newrelic');
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
@@ -12,7 +13,6 @@ app.use(express.static(path.join(__dirname, '/../public')));
 
 app.get('/:id/suggestions', (req, res) => {
   const { id } = req.params;
-  console.log('id', id)
   db.getSuggestionInfo(id, (result) => {
     res.send(result);
   });
