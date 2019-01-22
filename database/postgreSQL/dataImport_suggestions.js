@@ -16,7 +16,7 @@ CREATE TABLE suggestions (
 
 const importSuggestionsData = `
 COPY suggestions
-FROM '/Users/seymaakin/Desktop/hackreactor/hrsf107-system-design-capstone/wbnb-suggestions/database/postgreSQL/postgres_suggestions_data.csv'
+FROM '/tmp/postgres_suggestions_data.csv'
 WITH (format csv, header);
 `;
 
