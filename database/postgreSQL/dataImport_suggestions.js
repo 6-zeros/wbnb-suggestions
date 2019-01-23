@@ -1,8 +1,11 @@
 const { Client } = require('pg');
 
 const client = new Client({
-  host: 'localhost',
-  database: 'seymaakin'
+  host: '127.0.0.1',
+  database: 'listings',
+  user: 'postgres',
+  password: 'postgres',
+  port: '5432',
 });
 
 const createImportedSuggestionsTable = `

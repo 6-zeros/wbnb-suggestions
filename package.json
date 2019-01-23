@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build": "webpack -p --watch",
-    "start": "Nodemon ./server/server.js",
+    "start": "nodemon ./server/server.js",
     "stress-test": "k6 run k6.js",
     "populate_cassandra": "node ./database/dbseeder.js",
     "populate_postgres_suggestions": "node ./database/postgreSQL/seeder_suggestions_postgres.js",
@@ -17,7 +17,7 @@
     "seed_postgres_listing": "node ./database/postgreSQL/dataImport_listings.js",
     "seed_postgres_suggestions": "node ./database/postgreSQL/dataImport_suggestions.js",
     "test": "jest --watchAll",
-    "docker": "node ./database/postgreSQL/dataImport_listings.js && node ./database/postgreSQL/dataImport_suggestions.js && Nodemon ./server/server.js"
+    "docker": "node ./database/postgreSQL/dataImport_listings.js && node ./database/postgreSQL/dataImport_suggestions.js && nodemon ./server/server.js"
   },
   "dependencies": {
     "aws-sdk": "^2.380.0",

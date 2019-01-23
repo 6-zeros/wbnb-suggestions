@@ -1,8 +1,11 @@
 const { Client } = require('pg');
 
 const client = new Client({
-  host: 'localhost',
-  database: 'seymaakin'
+  host: '127.0.0.1',
+  database: 'listings',
+  user: 'postgres',
+  password: 'postgres',
+  port: '5432',
 });
 
 const createImportedListingsTable = `
@@ -19,7 +22,7 @@ CREATE TABLE listings (
 
 const importListingsData = `
 COPY listings (title, cost, picture, reviewCount, stars, beds)
-FROM '/tmp/postgres_listings_data.csv''
+FROM '/tmp/postgres_listings_data.csv'
 WITH (format csv, header);
 `;
 
