@@ -2,14 +2,14 @@
   "name": "",
   "version": "",
   "description": "",
-  "author": "",
+  "author": "Seyma Akin",
   "license": "",
   "engines": {
     "node": ">=6.13.0"
   },
   "scripts": {
-    "build": "webpack -p --watch",
-    "start": "nodemon ./server/server.js",
+    "build": "webpack --watch",
+    "start": "node ./server/server.js",
     "stress-test": "k6 run k6.js",
     "populate_cassandra": "node ./database/dbseeder.js",
     "populate_postgres_suggestions": "node ./database/postgreSQL/seeder_suggestions_postgres.js",

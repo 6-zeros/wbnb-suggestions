@@ -9,7 +9,7 @@ const port = 3123;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, '/../public')));
+app.use('/:id', express.static(path.join(__dirname, '/../public')));
 
 app.get('/:id/suggestions', (req, res) => {
   const { id } = req.params;
