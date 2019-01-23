@@ -10,25 +10,9 @@ class App extends React.Component {
       suggestionInfo: []
     };
   }
-  // componentDidMount() {
-  //   fetch("/1/suggestions", {
-  //     method: "GET",
-  //     headers: { "Content-type": "application/json" }
-  //   })
-  //     .then(data => {
-  //       console.log('data.json()', data.json())
-  //       return data.json();
-  //     })
-  //     .then(data2 => {
-  //       this.setState({
-  //         suggestionInfo: data2
-  //       });
-  //       return data2;
-  //     });
-  // }
 
-  getSuggestions() {
-    axios.get('/1/suggestions')
+  getSuggestions(listingId) {
+    axios.get(`/${listingId}/suggestions`)
       .then((data) => {
         this.setState({ suggestionInfo: data.data });
       })
@@ -38,15 +22,17 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.getSuggestions();
+    const urlParts = window.location.href.split('/');
+    const pathName = urlParts[3];
+    const listingId = pathName === "" ? (Math.floor(Math.random() * 10000000)+1) : pathName;
+    this.getSuggestions(listingId);
   }
-
   render() {
     console.log('state', this.state)
     return (
       <div>
         <div>
-          <h2 className="homes">More homes you may like</h2>
+         <h2 className="homes">More homes you may like</h2>
           <List suggestions={this.state.suggestionInfo} />
         </div>
       </div>
