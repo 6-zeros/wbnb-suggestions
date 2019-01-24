@@ -9,6 +9,8 @@ const port = 3123;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use('/loaderio-f8f4264807d737383637de0849a3a545.txt', express.static(path.join(__dirname, '/../public/loaderio-f8f4264807d737383637de0849a3a545.txt'))); // for loader.io
 app.use('/rooms/:id', express.static(path.join(__dirname, '/../public')));
 
 app.get('/:id/suggestions', (req, res) => {
