@@ -23,7 +23,7 @@ class App extends React.Component {
 
   componentDidMount() {
     const urlParts = window.location.href.split('/');
-    const pathName = urlParts[3];
+    const pathName = urlParts[4];
     const listingId = pathName === "" ? (Math.floor(Math.random() * 10000000)+1) : pathName;
     this.getSuggestions(listingId);
   }
