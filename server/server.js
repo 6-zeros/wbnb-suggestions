@@ -3,6 +3,11 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const db = require('../database/index.js');
+const redis = require("redis"),
+client = redis.createClient();
+client.on("error", function (err) {
+  console.log("Error " + err);
+});
 
 const app = express();
 const port = 3123;
@@ -13,10 +18,21 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/loaderio-f8f4264807d737383637de0849a3a545.txt', express.static(path.join(__dirname, '/../public/loaderio-f8f4264807d737383637de0849a3a545.txt'))); // for loader.io
 app.use('/rooms/:id', express.static(path.join(__dirname, '/../public')));
 
+
 app.get('/:id/suggestions', (req, res) => {
   const { id } = req.params;
-  db.getSuggestionInfo(id, (result) => {
-    res.send(result);
+  client.get(id, function (err, reply) {
+    // reply is null when the key is missing
+    if (reply !== null) {
+      res.send(reply);
+    }
+    else {
+      db.getSuggestionInfo(id, (result) => {
+        res.send(result);
+        // cache e ekle
+        client.set(id, JSON.stringify(result));
+      });
+    }
   });
 });
 
